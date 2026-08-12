@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Wishlist</h1>
+    <div class="header-actions">
+      <a href="/" class="admin-link">My Games</a>
+      <button id="add-manual-btn">+ Manual entry</button>
+    </div>
+  </header>
+
+  <div class="search-panel">
+    <input type="search" id="release-search" placeholder="Search any game on IGDB, out or not..." autocomplete="off">
+    <div id="search-results" class="search-results" hidden></div>
+    <p id="search-hint" class="search-hint" hidden></p>
+  </div>
+
+  <div class="toolbar">
+    <span class="toolbar-title">My list</span>
+    <label for="cal-platform">Platform:</label>
+    <select id="cal-platform"></select>
+    <span id="cal-count"></span>
+  </div>
+
+  <main id="calendar-list"></main>
+
+  <p class="admin-note">
+    Upcoming dates sync from IGDB every 12 hours; older games are looked up live.
+    <button id="sync-btn" class="link-btn">Refresh now</button>
+    <span id="sync-status"></span>
+  </p>
+
+  <dialog id="release-dialog">
+    <form id="release-form" method="dialog">
+      <h2 id="release-dialog-title">Add release</h2>
+      <input type="hidden" id="release-id">
+      <label>Title
+        <input type="text" id="release-title" required maxlength="200" autocomplete="off">
+      </label>
+      <div id="release-suggestions" class="suggestions" hidden></div>
+      <input type="hidden" id="release-cover-id">
+      <label>Date (optional)
+        <input type="date" id="release-date">
+      </label>
+      <label>Platforms
+        <input type="text" id="release-platforms" maxlength="300" placeholder="Switch, PS5" autocomplete="off">
+      </label>
+      <label>Note
+        <input type="text" id="release-notes" maxlength="500" placeholder="Physical edition" autocomplete="off">
+      </label>
+      <p id="igdb-owned-hint" class="search-hint" hidden>
+        Title, date and platforms come from IGDB and refresh automatically.
+      </p>
+      <div class="dialog-actions">
+        <button type="button" id="release-delete-btn" class="danger" hidden>Delete</button>
+        <button type="button" id="release-cancel-btn">Cancel</button>
+        <button type="submit" class="primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="library-dialog">
+    <form id="library-form" method="dialog">
+      <h2>Add to library</h2>
+      <p id="library-game-title" class="game-title"></p>
+      <input type="hidden" id="library-release-id">
+      <label>Platform
+        <select id="library-platform" required></select>
+      </label>
+      <label>Status
+        <select id="library-status"></select>
+      </label>
+      <div class="dialog-actions">
+        <button type="button" id="library-cancel-btn">Cancel</button>
+        <button type="submit" class="primary">Add</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/calendar.js"></script>
+</body>
+</html>

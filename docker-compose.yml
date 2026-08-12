@@ -1,0 +1,12 @@
+services:
+  game-tracker:
+    build: .
+    container_name: game-tracker
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+    environment:
+      - TWITCH_CLIENT_ID=${TWITCH_CLIENT_ID}
+      - TWITCH_CLIENT_SECRET=${TWITCH_CLIENT_SECRET}
+    restart: unless-stopped

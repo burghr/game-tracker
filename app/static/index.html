@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Tracker</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Game Tracker</h1>
+    <div class="header-actions">
+      <a href="/calendar.html" class="admin-link">Wishlist</a>
+      <a href="/admin.html" class="admin-link">Admin</a>
+      <button id="add-btn" class="primary">+ Add Game</button>
+    </div>
+  </header>
+
+  <nav id="status-tabs"></nav>
+
+  <div class="toolbar">
+    <input type="search" id="search-input" placeholder="Search your games..." autocomplete="off">
+    <label for="platform-filter">Platform:</label>
+    <select id="platform-filter"></select>
+    <span id="count"></span>
+  </div>
+
+  <main id="game-list"></main>
+
+  <dialog id="game-dialog">
+    <form id="game-form" method="dialog">
+      <h2 id="dialog-title">Add Game</h2>
+      <input type="hidden" id="game-id">
+      <label>Title
+        <input type="text" id="title" required maxlength="200" autocomplete="off">
+      </label>
+      <div id="suggestions" class="suggestions" hidden></div>
+      <p id="dupe-warning" class="dupe-warning" hidden></p>
+      <input type="hidden" id="cover-image-id">
+      <div id="cover-preview" class="cover-preview" hidden>
+        <img id="cover-preview-img" alt="Selected cover">
+        <button type="button" id="clear-cover-btn">Remove cover</button>
+      </div>
+      <label>Platform
+        <select id="platform" required></select>
+      </label>
+      <label>Status
+        <select id="status"></select>
+      </label>
+      <label>Rating (1–10, optional)
+        <input type="number" id="rating" min="1" max="10">
+      </label>
+      <label>Notes
+        <textarea id="notes" rows="3" maxlength="2000"></textarea>
+      </label>
+      <div class="dialog-actions">
+        <button type="button" id="cancel-btn">Cancel</button>
+        <button type="submit" class="primary" id="save-btn">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>

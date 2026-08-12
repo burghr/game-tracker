@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Tracker Admin</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Admin</h1>
+    <a href="/" class="admin-link">&larr; Back to games</a>
+  </header>
+
+  <div class="admin-grid">
+    <section class="admin-panel">
+      <h2>Platforms</h2>
+      <ul id="platform-list" class="admin-list"></ul>
+      <form id="platform-form" class="admin-add">
+        <input type="text" id="platform-input" placeholder="New platform" required maxlength="50" autocomplete="off">
+        <button type="submit" class="primary">Add</button>
+      </form>
+    </section>
+
+    <section class="admin-panel">
+      <h2>Statuses</h2>
+      <ul id="status-list" class="admin-list"></ul>
+      <form id="status-form" class="admin-add">
+        <input type="text" id="status-input" placeholder="New status" required maxlength="50" autocomplete="off">
+        <button type="submit" class="primary">Add</button>
+      </form>
+    </section>
+  </div>
+
+  <p class="admin-note">Renaming changes the label everywhere immediately. Deleting is only allowed when no game uses the entry.</p>
+
+  <script src="/admin.js"></script>
+</body>
+</html>
